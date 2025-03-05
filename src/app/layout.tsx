@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Geist } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400'] ,
+  weight: ['400','700'] ,
   display: 'swap' 
 })
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={poppins.className}>
+        <Header />
         {children}
       </body>
     </html>
