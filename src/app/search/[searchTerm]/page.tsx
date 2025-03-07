@@ -1,9 +1,8 @@
-import Card from "@/components/Card";
 import Results from "@/components/Results";
 
 async function SearchPage({ params } : any) {
   const { searchTerm } = await params;
-  const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${searchTerm}&language=en-US&page=1&include_adult=false`);
+  const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${searchTerm}`);
   const data = await res.json();
   const results = data.results;
 
