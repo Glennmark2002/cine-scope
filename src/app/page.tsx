@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Trending from "@/components/Trending";
 
 async function Home() {
 
@@ -6,12 +6,15 @@ async function Home() {
   const res = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`);
   const data = await res.json();
   const results = data.results;
-  // console.log(results[0].poster_path);
 
   return (
-    <div className='h-screen pt-16 bg-base-200'>
-      {results.map((result : any) =>  <img key={result.id} src={`https://image.tmdb.org/t/p/original/${result.poster_path}`}/> )}
+    <div className='pt-20'>
+      <p className='p-4 text-xl font-bold'>Trending</p>
+      <div className='flex justify-center items-center'>
+        <Trending results={results} />
+      </div>
     </div>
+    
   );
 }
 
