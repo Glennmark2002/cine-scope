@@ -1,9 +1,9 @@
 import Card from "./Card";
 
-async function Trending() {
+async function TopRated() {
 
   const API_KEY = process.env.API_KEY;
-  const res = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`);
+  const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`);
   const data = await res.json();
   const results = data.results;
 
@@ -16,4 +16,4 @@ async function Trending() {
   );
 }
 
-export default Trending;
+export default TopRated;
